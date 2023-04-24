@@ -1,0 +1,29 @@
+ .nav-item .active {
+    border-bottom: 2px solid red;
+    font-weight: bold;
+    color: red !important;
+    max-width: fit-content;
+  }
+ .inputBox{
+  display: block;
+  margin: 15px;
+  padding: 5px;
+ }
+ .login{
+  margin-left: 30%;
+ }
+ h1{
+    color: green;
+    background-color: skyblue;
+    width: 215px;
+    text-align: center;
+    margin-top: 120px;
+}
+ .appButton{
+  
+    color: lightgreen;
+    background-color: blue;
+    margin-left: 15px;
+    border: none;
+}
+ 
