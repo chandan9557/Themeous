@@ -12,12 +12,12 @@
  .login{
   margin-left: 30%;
  }
- h1{
+ h2{
     color: green;
     background-color: skyblue;
     width: 215px;
     text-align: center;
-    margin-top: 120px;
+    margin-top: 5px;
 }
  .appButton{
   

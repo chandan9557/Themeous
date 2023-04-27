@@ -7,14 +7,12 @@ const cors=require('cors');
 
 //allow client to make reqest
 app.use(cors({origin:'http://localhost:3000'}))
-
 app.use(express.json());
 app.use('/user',userRouter);
 
 app.get('/',(req,res)=>{
     res.send('working fine')
 });
-
 app.get('/add',(req,res)=>{
     res.send('Add request on server')
 });
