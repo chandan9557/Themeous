@@ -5,6 +5,8 @@ import Main from './components/main';
 import Login from './components/main/Login';
 import Signup from './components/main/Signup';
 import UserProfile from './components/user/UserProfile';
+import MUICustomizer from './components/user/MUICustomizer';
+import User from './components/user';
 
 
 function App() {
@@ -19,6 +21,11 @@ function App() {
             <Route path="signup" element={<Signup />} />
             <Route path="login" element={<Login />} />
             <Route path="userProfile" element={<UserProfile/>} />
+          </Route>
+          <Route path='user' element={<User />} >
+
+            <Route path="customizemui" element={<MUICustomizer/>} />
+            
           </Route>
         </Routes>
       </BrowserRouter>
