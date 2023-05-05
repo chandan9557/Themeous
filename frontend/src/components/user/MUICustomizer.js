@@ -20,11 +20,16 @@ import app_config from "../../config";
 const MUICustomizer = ({ mainTheme, setMainTheme }) => {
   const [mode, setMode] = useState("light");
 
+  const fontFamilyOptions = [
+    'Montserrat',
+    'Roboto'
+  ]
+
   const { options } = app_config;
 
   const [selAccent, setSelAccent] = useState("primary");
   const [borderRadius, setBorderRadius] = useState(0);
-  const [fontFamily, setFontFamily] = useState("");
+  const [selFontFamily, setSelFontFamily] = useState(fontFamilyOptions[0]);
   const [breakPoints, setBreakPoints] = useState({
     xs: 0,
     sm: 576,
@@ -125,6 +130,22 @@ const MUICustomizer = ({ mainTheme, setMainTheme }) => {
     // console.log(mainTheme);
   };
 
+  const updateFontFamily = () => {
+    setMainTheme({
+      palette: {
+        primary,
+        secondary,
+        error,
+        warning,
+        info,
+        success,
+      },
+      typography: {
+        fontFamily : selFontFamily
+      }
+    })
+  }
+
   const showAccent = () => {
     return options.materialUI.accent.map((accent, index) => (
       <button
@@ -221,7 +242,9 @@ const MUICustomizer = ({ mainTheme, setMainTheme }) => {
       <hr />
 
       <div className="container">
-        <h3>Selected Color : {selAccent}</h3>
+        <div className="row">
+          <div className="col-md-4">
+          <h3>Selected Color : {selAccent}</h3>
         <select
           className="form-control my-3"
           value={selAccent}
@@ -233,6 +256,25 @@ const MUICustomizer = ({ mainTheme, setMainTheme }) => {
             </option>
           ))}
         </select>
+          </div>
+
+         
+          <div className="col-md-4">
+          <h3>Selected Font Family : {selFontFamily}</h3>
+        <select
+          className="form-control my-3"
+          value={selFontFamily}
+          onChange={(e) => setSelFontFamily(e.target.value)}
+        >
+          {fontFamilyOptions.map((font, index) => (
+            <option key={index} value={font}>
+              {font}
+            </option>
+          ))}
+        </select>
+          </div>
+        </div>
+       
 
         <div className="row mb-5">
           <div className="col-md-4">

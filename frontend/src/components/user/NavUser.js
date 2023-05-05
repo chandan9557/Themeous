@@ -4,7 +4,7 @@ import app_config from '../../config'
 
 const {themeColor} = app_config;
 
-export const Navbar = () => {
+export const NavUser = () => {
   return (
     <div>
       <>
@@ -38,28 +38,23 @@ export const Navbar = () => {
               {/* Left links */}
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="Home">
-                    Home
+                  <NavLink className="nav-link" to="MUICustomizer">
+                    MUICustomizer
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="userProfile">
+                  <NavLink className="nav-link" to="/">
                     userProfile
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="Signup">
+                  <NavLink className="nav-link" to="/">
                     Signup
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="Login">
+                  <NavLink className="nav-link" to="/">
                     Login
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="user">
-                    User
                   </NavLink>
                 </li>
               </ul>

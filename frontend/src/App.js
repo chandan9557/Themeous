@@ -7,9 +7,16 @@ import Signup from './components/main/Signup';
 import UserProfile from './components/user/UserProfile';
 import MUICustomizer from './components/user/MUICustomizer';
 import User from './components/user';
+import { ThemeProvider, createTheme } from '@mui/material';
+import { useState } from 'react';
 
 
 function App() {
+
+  const [mainTheme, setMainTheme] = useState({});
+
+  const muiTheme = createTheme(mainTheme);
+
   return (
     <div>
       <BrowserRouter>
@@ -22,9 +29,9 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="userProfile" element={<UserProfile/>} />
           </Route>
-          <Route path='user' element={<User />} >
+          <Route path='user' element={  <User />} >
 
-            <Route path="customizemui" element={<MUICustomizer/>} />
+            <Route path="customizemui" element={ <ThemeProvider theme={muiTheme}><MUICustomizer mainTheme={mainTheme} setMainTheme={setMainTheme}/></ThemeProvider>} />
             
           </Route>
         </Routes>
