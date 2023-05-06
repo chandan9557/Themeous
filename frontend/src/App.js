@@ -9,6 +9,7 @@ import MUICustomizer from './components/user/MUICustomizer';
 import User from './components/user';
 import { ThemeProvider, createTheme } from '@mui/material';
 import { useState } from 'react';
+import BootstrapCustomizer from './components/user/BootstrapCustomizer';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path='user' element={  <User />} >
 
             <Route path="customizemui" element={ <ThemeProvider theme={muiTheme}><MUICustomizer mainTheme={mainTheme} setMainTheme={setMainTheme}/></ThemeProvider>} />
+            <Route path="customizebt" element={ <BootstrapCustomizer />} />
             
           </Route>
         </Routes>

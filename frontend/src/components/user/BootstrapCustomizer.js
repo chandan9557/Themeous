@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import bootstrapVars from "./bootstrapVars";
+import React, { useEffect, useState } from "react";
+// import bootstrapVars from "./bootstrapVars";
 import "./bootstrap.css";
 import app_config from "../../config";
 
@@ -32,7 +32,7 @@ const BootstrapCustomizer = () => {
 
   const { options, fontFamilOptions } = app_config;
 
-  const [selTheme, setSelTheme] = useState(bootstrapVars);
+  // const [selTheme, setSelTheme] = useState(bootstrapVars);
   const color = getComputedStyle(document.documentElement).getPropertyValue(
     "--bs-blue"
   );
@@ -47,9 +47,22 @@ const BootstrapCustomizer = () => {
       value
     );
     // console.log(
-    //   getComputedStyle(document.documentElement).getPropertyValue("--bs-blue")
-    // );
-  };
+      //   getComputedStyle(document.documentElement).getPropertyValue("--bs-blue")
+      // );
+    };
+    
+    const setBorderRadiusinPage = () => {
+      
+      document.documentElement.style.setProperty(
+        `--bs-border-width`,
+        borderRadius
+      );
+  }
+
+  useEffect(() => {
+    setBorderRadiusinPage();
+  }, [borderRadius])
+  
 
   const showAccent = () => {
     return options.bootstrap.accent.map((accent, index) => (
@@ -73,6 +86,9 @@ const BootstrapCustomizer = () => {
   }
 
   const displayOptions = () => {};
+
+
+
 
   return (
     <div>
