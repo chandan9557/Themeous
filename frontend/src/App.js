@@ -10,11 +10,14 @@ import User from './components/user';
 import { ThemeProvider, createTheme } from '@mui/material';
 import { useState } from 'react';
 import BootstrapCustomizer from './components/user/BootstrapCustomizer';
+import AntDCustomizer from './components/user/AntDCustomizer';
+import { ConfigProvider } from 'antd';
 
 
 function App() {
 
   const [mainTheme, setMainTheme] = useState({});
+  const [antDTheme, setAntDTheme] = useState({});
 
   const muiTheme = createTheme(mainTheme);
 
@@ -34,6 +37,7 @@ function App() {
 
             <Route path="customizemui" element={ <ThemeProvider theme={muiTheme}><MUICustomizer mainTheme={mainTheme} setMainTheme={setMainTheme}/></ThemeProvider>} />
             <Route path="customizebt" element={ <BootstrapCustomizer />} />
+            <Route path="customizeantd" element={ <ConfigProvider theme={antDTheme}> <AntDCustomizer mainTheme={antDTheme} setMainTheme={setAntDTheme} /> </ConfigProvider>} />
             
           </Route>
         </Routes>

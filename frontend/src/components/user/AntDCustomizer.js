@@ -84,7 +84,7 @@ const AntDCustomizer = ({ mainTheme, setMainTheme }) => {
     setCurrent(e.key);
   };
 
-  const [primary, setPrimary] = useState({
+  const [colorPrimary, setColorPrimary] = useState({
     main: "#1976d2",
     light: "#42a5f5",
     dark: "#1565c0",
@@ -163,8 +163,8 @@ const AntDCustomizer = ({ mainTheme, setMainTheme }) => {
 
     setMainTheme({
       // ...mainTheme,
-      palette: {
-        primary,
+      token: {
+        colorPrimary,
         secondary,
         error,
         warning,
@@ -188,7 +188,7 @@ const AntDCustomizer = ({ mainTheme, setMainTheme }) => {
   };
 
   const getThemeObj = () => {
-    if (selAccent === "primary") return primary;
+    if (selAccent === "primary") return colorPrimary;
     else if (selAccent === "secondary") return secondary;
     else if (selAccent === "error") return error;
     else if (selAccent === "warning") return warning;
@@ -197,7 +197,7 @@ const AntDCustomizer = ({ mainTheme, setMainTheme }) => {
   };
 
   const getThemeSetObj = () => {
-    if (selAccent === "primary") return setPrimary;
+    if (selAccent === "primary") return setColorPrimary;
     else if (selAccent === "secondary") return setSecondary;
     else if (selAccent === "error") return setError;
     else if (selAccent === "warning") return setWarning;
