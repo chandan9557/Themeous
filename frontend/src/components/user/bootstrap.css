@@ -4840,10 +4840,10 @@ textarea.form-control-lg {
 }
 
 .alert-primary {
-  --bs-alert-color: var(--bs-primary-text);
+  --bs-alert-color: var(--bs-blue);
   --bs-alert-bg: var(--bs-primary-bg-subtle);
   --bs-alert-border-color: var(--bs-primary-border-subtle);
-  --bs-alert-link-color: var(--bs-primary-text);
+  --bs-alert-link-color: var(--bs-blue);
 }
 
 .alert-secondary {

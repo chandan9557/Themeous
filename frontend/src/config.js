@@ -12,6 +12,7 @@ const app_config = {
         "Raleway",
         "Oswald",
         "Times New Roman",
+        
       ],
       options: {
         bootstrap: {
