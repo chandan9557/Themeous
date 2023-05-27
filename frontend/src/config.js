@@ -34,12 +34,12 @@ const app_config = {
             --bs-red: #dc3545;
             --bs-orange: #fd7e14;
             --bs-yellow: #ffc107;
-            --bs-green: #198754;
+            --bs-green: ${success};
             --bs-teal: #20c997;
             --bs-cyan: #0dcaf0;
             --bs-black: #000;
             --bs-white: #fff;
-            --bs-gray: #6c757d;
+            --bs-gray: ${secondary};
             --bs-gray-dark: #343a40;
             --bs-gray-100: #f8f9fa;
             --bs-gray-200: #e9ecef;
@@ -51,8 +51,8 @@ const app_config = {
             --bs-gray-800: #343a40;
             --bs-gray-900: #212529;
             --bs-primary: #0d6efd;
-            --bs-secondary: #6c757d;
-            --bs-success: #198754;
+            --bs-secondary: ${secondary};
+            --bs-success: ${success};
             --bs-info: #0dcaf0;
             --bs-warning: #ffc107;
             --bs-danger: #dc3545;
@@ -3068,8 +3068,8 @@ const app_config = {
           
           .btn-success {
             --bs-btn-color: #fff;
-            --bs-btn-bg: #198754;
-            --bs-btn-border-color: #198754;
+            --bs-btn-bg: var(--bs-success);
+            --bs-btn-border-color: var(--bs-success);
             --bs-btn-hover-color: #fff;
             --bs-btn-hover-bg: #157347;
             --bs-btn-hover-border-color: #146c43;
@@ -3079,8 +3079,8 @@ const app_config = {
             --bs-btn-active-border-color: #13653f;
             --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
             --bs-btn-disabled-color: #fff;
-            --bs-btn-disabled-bg: #198754;
-            --bs-btn-disabled-border-color: #198754;
+            --bs-btn-disabled-bg: var(--bs-success);
+            --bs-btn-disabled-border-color: var(--bs-success);
           }
           
           .btn-info {
@@ -3203,19 +3203,19 @@ const app_config = {
           }
           
           .btn-outline-success {
-            --bs-btn-color: #198754;
-            --bs-btn-border-color: #198754;
+            --bs-btn-color: var(--bs-success);
+            --bs-btn-border-color: var(--bs-success);
             --bs-btn-hover-color: #fff;
-            --bs-btn-hover-bg: #198754;
-            --bs-btn-hover-border-color: #198754;
+            --bs-btn-hover-bg: var(--bs-success);
+            --bs-btn-hover-border-color: var(--bs-success);
             --bs-btn-focus-shadow-rgb: 25, 135, 84;
             --bs-btn-active-color: #fff;
-            --bs-btn-active-bg: #198754;
-            --bs-btn-active-border-color: #198754;
+            --bs-btn-active-bg: var(--bs-success);
+            --bs-btn-active-border-color: var(--bs-success);
             --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-            --bs-btn-disabled-color: #198754;
+            --bs-btn-disabled-color: var(--bs-success);
             --bs-btn-disabled-bg: transparent;
-            --bs-btn-disabled-border-color: #198754;
+            --bs-btn-disabled-border-color: var(--bs-success);
             --bs-gradient: none;
           }
           
@@ -6941,7 +6941,7 @@ const app_config = {
           }
           
           .link-success {
-            color: #198754 !important;
+            color: var(--bs-success) !important;
           }
           .link-success:hover, .link-success:focus {
             color: #146c43 !important;

@@ -51,91 +51,94 @@ const Signup = () => {
   })
 
   return (
-    <section className="vh-100" style={{ backgroundColor: "#2779e2" }}>
-      <div className="container h-100">
-        <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col-xl-9">
-            <h1 className="text-white mb-4"></h1>
-            <div className="card" style={{ borderRadius: 15 }}>
-              <div className="card-body">
-                <div className="d-flex justify-content-center my-5">
+    <div style={{backgroundImage:'url("https://static.vecteezy.com/system/resources/previews/003/484/032/original/modern-abstract-background-design-with-colorful-liquid-shapes-fluid-background-design-for-landing-page-theme-brochure-banner-cover-print-flyer-book-card-or-advertising-vector.jpg")', backgroundSize:'cover', backgroundRepeat:'no-repeat'}}>
+      <section className="vh-100">
+        <div className="container h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="col-xl-9">
+              <h1 className="text-white mb-4"></h1>
+              <div className="card" style={{ borderRadius: 15 }}>
+                <div className="card-body">
+                  <div className="d-flex justify-content-center my-5">
 
-                  <img
-                    src="/logo.png"
-                    alt="Generic placeholder image"
-                    className=""
+                    <img
+                      src="/logo.png"
+                      alt="Generic placeholder image"
+                      className=""
 
-                    style={{ height: 60, display: "block" }}
-                  />
-                  <h1>Themeous</h1>
+                      style={{ height: 60, display: "block" }}
+                    />
+                    <h1>Themeous</h1>
+                  </div>
+
+                  <form onSubmit={signupForm.handleSubmit}>
+                    <div className="row align-items-center pt-4 pb-3">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="mb-0">Full name</h6>
+                      </div>
+                      <div className="col-md-9 pe-5">
+                        <input
+                          type="text"
+                          className="form-control form-control-lg"
+                          id="name"
+                          value={signupForm.values.name}
+                          onChange={signupForm.handleChange}
+                        />
+                        <span className="text-danger fw-bold">{signupForm.errors.name}</span>
+                      </div>
+                    </div>
+                    {/* <hr className="mx-n3" /> */}
+                    <div className="row align-items-center py-3">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="mb-0">Email address</h6>
+                      </div>
+                      <div className="col-md-9 pe-5">
+                        <input
+                          type="email"
+                          className="form-control form-control-lg"
+                          placeholder="example@example.com"
+                          id="email"
+                          value={signupForm.values.email}
+                          onChange={signupForm.handleChange}
+                        />
+                        <span className="text-danger fw-bold">{signupForm.errors.email}</span>
+                      </div>
+                    </div>
+                    {/* <hr className="mx-n3" /> */}
+                    <div className="row align-items-center py-3">
+                      <div className="col-md-3 ps-5">
+                        <h6 className="mb-0">Password</h6>
+                      </div>
+                      <div className="col-md-9 pe-5">
+                        <input
+                          className="form-control"
+                          type="password"
+                          placeholder="Message sent to the employer"
+                          id="password"
+                          value={signupForm.values.password}
+                          onChange={signupForm.handleChange}
+                        />
+                        <span className="text-danger fw-bold">{signupForm.errors.password}</span>
+                      </div>
+                    </div>
+                    {/* <hr className="mx-n3" /> */}
+
+                    {/* <hr className="mx-n3" /> */}
+                    <div className="px-5 py-4">
+                      <button type="submit" className="btn btn-primary btn-lg" disabled={signupForm.isSubmitting} >
+                        {signupForm.isSubmitting ? <span className="spinner-border spinner-border-sm"></span> : null}
+                        &nbsp;&nbsp;Submit
+                      </button>
+                    </div>
+                  </form>
                 </div>
-
-                <form onSubmit={signupForm.handleSubmit}>
-                  <div className="row align-items-center pt-4 pb-3">
-                    <div className="col-md-3 ps-5">
-                      <h6 className="mb-0">Full name</h6>
-                    </div>
-                    <div className="col-md-9 pe-5">
-                      <input
-                        type="text"
-                        className="form-control form-control-lg"
-                        id="name"
-                        value={signupForm.values.name}
-                        onChange={signupForm.handleChange}
-                      />
-                      <span className="text-danger fw-bold">{signupForm.errors.name}</span>
-                    </div>
-                  </div>
-                  {/* <hr className="mx-n3" /> */}
-                  <div className="row align-items-center py-3">
-                    <div className="col-md-3 ps-5">
-                      <h6 className="mb-0">Email address</h6>
-                    </div>
-                    <div className="col-md-9 pe-5">
-                      <input
-                        type="email"
-                        className="form-control form-control-lg"
-                        placeholder="example@example.com"
-                        id="email"
-                        value={signupForm.values.email}
-                        onChange={signupForm.handleChange}
-                      />
-                      <span className="text-danger fw-bold">{signupForm.errors.email}</span>
-                    </div>
-                  </div>
-                  {/* <hr className="mx-n3" /> */}
-                  <div className="row align-items-center py-3">
-                    <div className="col-md-3 ps-5">
-                      <h6 className="mb-0">Password</h6>
-                    </div>
-                    <div className="col-md-9 pe-5">
-                      <input
-                        className="form-control"
-                        type="password"
-                        placeholder="Message sent to the employer"
-                        id="password"
-                        value={signupForm.values.password}
-                        onChange={signupForm.handleChange}
-                      />
-                      <span className="text-danger fw-bold">{signupForm.errors.password}</span>
-                    </div>
-                  </div>
-                  {/* <hr className="mx-n3" /> */}
-
-                  {/* <hr className="mx-n3" /> */}
-                  <div className="px-5 py-4">
-                    <button type="submit" className="btn btn-primary btn-lg" disabled={signupForm.isSubmitting} >
-                      {signupForm.isSubmitting ? <span className="spinner-border spinner-border-sm"></span> : null}
-                      &nbsp;&nbsp;Submit
-                    </button>
-                  </div>
-                </form>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
+
   );
 };
 

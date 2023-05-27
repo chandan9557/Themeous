@@ -12,18 +12,19 @@
  .login{
   margin-left: 30%;
  }
- h2{
-    color: green;
-    background-color: skyblue;
-    width: 215px;
-    text-align: center;
-    margin-top: 5px;
-}
+
  .appButton{
   
     color: lightgreen;
     background-color: blue;
     margin-left: 15px;
     border: none;
+}
+ .nav-link{
+   color: black;
+ }
+ .bord{
+    border: 1px solid skyblue;
+    border-radius: 5px;
 }
  

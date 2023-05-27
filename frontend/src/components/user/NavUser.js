@@ -38,23 +38,23 @@ export const NavUser = () => {
               {/* Left links */}
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="MUICustomizer">
+                  <NavLink className="nav-link" to="customizemui">
                     MUICustomizer
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/">
-                    userProfile
+                  <NavLink className="nav-link" to="customizebt">
+                  BootstrapCustomizer
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/">
-                    Signup
+                  <NavLink className="nav-link" to="customizeantd">
+                  ANTDesignCustomizer
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="/">
-                    Login
+                  <NavLink className="nav-link" to="userProfil">
+                  UserProfile
                   </NavLink>
                 </li>
               </ul>

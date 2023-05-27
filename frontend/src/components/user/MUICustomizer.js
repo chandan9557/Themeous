@@ -39,6 +39,8 @@ const MUICustomizer = ({ mainTheme, setMainTheme }) => {
     xxl: 1400,
   });
 
+
+
   const [primary, setPrimary] = useState({
     main: "#1976d2",
     light: "#42a5f5",
@@ -141,7 +143,7 @@ const MUICustomizer = ({ mainTheme, setMainTheme }) => {
         success,
       },
       typography: {
-        fontFamily : selFontFamily
+        fontFamily: selFontFamily
       }
     })
   }
@@ -159,21 +161,21 @@ const MUICustomizer = ({ mainTheme, setMainTheme }) => {
   };
 
   const getThemeObj = () => {
-    if(selAccent === 'primary') return primary;
-    else if(selAccent === 'secondary') return secondary;
-    else if(selAccent === 'error') return error;
-    else if(selAccent === 'warning') return warning;
-    else if(selAccent === 'info') return info;
-    else if(selAccent === 'success') return success;
+    if (selAccent === 'primary') return primary;
+    else if (selAccent === 'secondary') return secondary;
+    else if (selAccent === 'error') return error;
+    else if (selAccent === 'warning') return warning;
+    else if (selAccent === 'info') return info;
+    else if (selAccent === 'success') return success;
   }
 
   const getThemeSetObj = () => {
-    if(selAccent === 'primary') return setPrimary;
-    else if(selAccent === 'secondary') return setSecondary;
-    else if(selAccent === 'error') return setError;
-    else if(selAccent === 'warning') return setWarning;
-    else if(selAccent === 'info') return setInfo;
-    else if(selAccent === 'success') return setSuccess;
+    if (selAccent === 'primary') return setPrimary;
+    else if (selAccent === 'secondary') return setSecondary;
+    else if (selAccent === 'error') return setError;
+    else if (selAccent === 'warning') return setWarning;
+    else if (selAccent === 'info') return setInfo;
+    else if (selAccent === 'success') return setSuccess;
   }
 
   function copyToClipboard(text) {
@@ -186,205 +188,208 @@ const MUICustomizer = ({ mainTheme, setMainTheme }) => {
   }
 
   return (
-    <div>
+    <div className="img-fluid" style={{ backgroundImage: 'url("https://static.vecteezy.com/system/resources/previews/003/484/032/original/modern-abstract-background-design-with-colorful-liquid-shapes-fluid-background-design-for-landing-page-theme-brochure-banner-cover-print-flyer-book-card-or-advertising-vector.jpg")', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
       <div className="container">
-  {/* Button trigger modal */}
-  <button
-    type="button"
-    className="btn btn-primary"
-    data-mdb-toggle="modal"
-    data-mdb-target="#exampleModal"
-  >
-    Export MUI Theme
-  </button>
-  {/* Modal */}
-  <div
-    className="modal fade"
-    id="exampleModal"
-    tabIndex={-1}
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div className="modal-dialog">
-      <div className="modal-content">
-        <div className="modal-header">
-          <h5 className="modal-title" id="exampleModalLabel">
-            Export MUI Theme
-          </h5>
-          <button
-            type="button"
-            className="btn-close"
-            data-mdb-dismiss="modal"
-            aria-label="Close"
-          />
-        </div>
-        <div className="modal-body">
-          <textarea className="form-control w-100" rows={10} value={JSON.stringify(mainTheme)}></textarea>
-          
-        </div>
-        <div className="modal-footer">
-          <button
-            type="button"
-            className="btn btn-secondary"
-            data-mdb-dismiss="modal"
-          >
-            Close
-          </button>
-          <button type="button" className="btn btn-primary" onClick={e => copyToClipboard(JSON.stringify(mainTheme))}>
-            Copy Theme
-          </button>
+
+        {/* Button trigger modal */}
+        <button
+          type="button"
+          className="btn btn-primary"
+          data-mdb-toggle="modal"
+          data-mdb-target="#exampleModal"
+        >
+          Export MUI Theme
+        </button>
+        {/* Modal */}
+        <div
+          className="modal fade"
+          id="exampleModal"
+          tabIndex={-1}
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
+                  Export MUI Theme
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-mdb-dismiss="modal"
+                  aria-label="Close"
+                />
+              </div>
+              <div className="modal-body">
+                <textarea className="form-control w-100" rows={10} value={JSON.stringify(mainTheme)}></textarea>
+
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-mdb-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" className="btn btn-primary" onClick={e => copyToClipboard(JSON.stringify(mainTheme))}>
+                  Copy Theme
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
       <hr />
 
       <div className="container">
-        <div className="row">
-          <div className="col-md-4">
-          <h3>Selected Color : {selAccent}</h3>
-        <select
-          className="form-control my-3"
-          value={selAccent}
-          onChange={(e) => setSelAccent(e.target.value)}
-        >
-          {options.materialUI.accent.map((accent, index) => (
-            <option key={index} value={accent}>
-              {accent}
-            </option>
-          ))}
-        </select>
-          </div>
-
-         
-          <div className="col-md-4">
-          <h3>Selected Font Family : {selFontFamily}</h3>
-        <select
-          className="form-control my-3"
-          value={selFontFamily}
-          onChange={(e) => setSelFontFamily(e.target.value)}
-        >
-          {fontFamilyOptions.map((font, index) => (
-            <option key={index} value={font}>
-              {font}
-            </option>
-          ))}
-        </select>
-          </div>
-        </div>
-       
-
-        <div className="row mb-5">
-          <div className="col-md-4">
-            <label className="h5">{selAccent} Color</label>
-            <input
-              type="color"
-              className="form-control"
-              onChange={(e) =>
-                updateColorPalette(getThemeObj(), getThemeSetObj(), "main", e.target.value)
-              }
-            />
-          </div>
-          <div className="col-md-8">
-            <Button variant="contained" color={selAccent}>
-              Primary
-            </Button>
-            <div className="p-3">
-              <TextField
-                color={selAccent}
-                label="Outlined"
-                variant="outlined"
-              />
-              <TextField color={selAccent} label="Filled" variant="filled" />
-              <TextField
-                color={selAccent}
-                label="Standard"
-                variant="standard"
-              />
-            </div>
-
-            <div className="p-3">
-              <ButtonGroup
-                color={selAccent}
-                variant="contained"
-                aria-label="outlined primary button group"
-              >
-                <Button>One</Button>
-                <Button>Two</Button>
-                <Button>Three</Button>
-              </ButtonGroup>
-            </div>
-
-            <div className="p-3">
-              <Checkbox defaultChecked color={selAccent} />
-              <Checkbox color={selAccent} />
-              <Checkbox color={selAccent} disabled />
-              <Checkbox color={selAccent} disabled checked />
-            </div>
+        <div className="card">
+          <div className="card-body">
             <div className="row">
-              <div className="col-md-3 p-3">
-                <Fab size="small" color={selAccent} aria-label="add">
-                  <Add />
-                </Fab>
-                <Fab size="medium" color={selAccent} aria-label="add">
-                  <Add />
-                </Fab>
-                <Fab color={selAccent} aria-label="add">
-                  <Add />
-                </Fab>
+              <div className="col-md-4">
+                <h3>Selected Color : {selAccent}</h3>
+                <select
+                  className="form-control my-3"
+                  value={selAccent}
+                  onChange={(e) => setSelAccent(e.target.value)}
+                >
+                  {options.materialUI.accent.map((accent, index) => (
+                    <option key={index} value={accent}>
+                      {accent}
+                    </option>
+                  ))}
+                </select>
               </div>
-              <div className="col-md p-3">
-                <Fab
-                  variant="extended"
-                  size="small"
-                  color={selAccent}
-                  aria-label="add"
-                >
-                  <Navigation sx={{ mr: 1 }} />
-                  Extended
-                </Fab>
-                <Fab
-                  variant="extended"
-                  size="medium"
-                  color={selAccent}
-                  aria-label="add"
-                >
-                  <Navigation sx={{ mr: 1 }} />
-                  Extended
-                </Fab>
-                <Fab variant="extended" color={selAccent} aria-label="add">
-                  <Navigation sx={{ mr: 1 }} />
-                  Extended
-                </Fab>
-                <Slider aria-label="Volume" color={selAccent} />
-                <Switch label="MUI Switch" color={selAccent} defaultChecked />
-                <Switch label="MUI Switch" color={selAccent} />
-                <Switch
-                  label="MUI Switch"
-                  color={selAccent}
-                  disabled
-                  defaultChecked
-                />
-                <Switch label="MUI Switch" color={selAccent} disabled />
 
-                <Badge badgeContent={4} color={selAccent}>
-                  <Mail color="action" />
-                </Badge>
-                <Stack direction="row" spacing={1}>
-                  <Chip label={selAccent} color={selAccent} />
-                </Stack>
-                <Alert severity={selAccent}>
-                  This is an error alert — check it out!
-                </Alert>
-                <CircularProgress color={selAccent} />
-                <Pagination count={10} color={selAccent} />
+
+              <div className="col-md-4">
+                <h3>Selected Font Family : {selFontFamily}</h3>
+                <select
+                  className="form-control my-3"
+                  value={selFontFamily}
+                  onChange={(e) => setSelFontFamily(e.target.value)}
+                >
+                  {fontFamilyOptions.map((font, index) => (
+                    <option key={index} value={font}>
+                      {font}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
-          </div>
-        </div>
-        {/* <div className="row mb-5">
+
+
+            <div className="row mb-5">
+              <div className="col-md-4">
+                <label className="h5">{selAccent} Color</label>
+                <input
+                  type="color"
+                  className="form-control"
+                  onChange={(e) =>
+                    updateColorPalette(getThemeObj(), getThemeSetObj(), "main", e.target.value)
+                  }
+                />
+              </div>
+              <div className="col-md-8">
+                <Button variant="contained" color={selAccent}>
+                  Primary
+                </Button>
+                <div className="p-3">
+                  <TextField
+                    color={selAccent}
+                    label="Outlined"
+                    variant="outlined"
+                  />
+                  <TextField color={selAccent} label="Filled" variant="filled" />
+                  <TextField
+                    color={selAccent}
+                    label="Standard"
+                    variant="standard"
+                  />
+                </div>
+
+                <div className="p-3">
+                  <ButtonGroup
+                    color={selAccent}
+                    variant="contained"
+                    aria-label="outlined primary button group"
+                  >
+                    <Button>One</Button>
+                    <Button>Two</Button>
+                    <Button>Three</Button>
+                  </ButtonGroup>
+                </div>
+
+                <div className="p-3">
+                  <Checkbox defaultChecked color={selAccent} />
+                  <Checkbox color={selAccent} />
+                  <Checkbox color={selAccent} disabled />
+                  <Checkbox color={selAccent} disabled checked />
+                </div>
+                <div className="row">
+                  <div className="col-md-3 p-3">
+                    <Fab size="small" color={selAccent} aria-label="add">
+                      <Add />
+                    </Fab>
+                    <Fab size="medium" color={selAccent} aria-label="add">
+                      <Add />
+                    </Fab>
+                    <Fab color={selAccent} aria-label="add">
+                      <Add />
+                    </Fab>
+                  </div>
+                  <div className="col-md p-3">
+                    <Fab
+                      variant="extended"
+                      size="small"
+                      color={selAccent}
+                      aria-label="add"
+                    >
+                      <Navigation sx={{ mr: 1 }} />
+                      Extended
+                    </Fab>
+                    <Fab
+                      variant="extended"
+                      size="medium"
+                      color={selAccent}
+                      aria-label="add"
+                    >
+                      <Navigation sx={{ mr: 1 }} />
+                      Extended
+                    </Fab>
+                    <Fab variant="extended" color={selAccent} aria-label="add">
+                      <Navigation sx={{ mr: 1 }} />
+                      Extended
+                    </Fab>
+                    <Slider aria-label="Volume" color={selAccent} />
+                    <Switch label="MUI Switch" color={selAccent} defaultChecked />
+                    <Switch label="MUI Switch" color={selAccent} />
+                    <Switch
+                      label="MUI Switch"
+                      color={selAccent}
+                      disabled
+                      defaultChecked
+                    />
+                    <Switch label="MUI Switch" color={selAccent} disabled />
+
+                    <Badge badgeContent={4} color={selAccent}>
+                      <Mail color="action" />
+                    </Badge>
+                    <Stack direction="row" spacing={1}>
+                      <Chip label={selAccent} color={selAccent} />
+                    </Stack>
+                    <Alert severity={selAccent}>
+                      This is an error alert — check it out!
+                    </Alert>
+                    <CircularProgress color={selAccent} />
+                    <Pagination count={10} color={selAccent} />
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* <div className="row mb-5">
           <div className="col-md-4">
             <h3>Button</h3>
             <label className="h5">Secondary Color</label>
@@ -433,6 +438,8 @@ const MUICustomizer = ({ mainTheme, setMainTheme }) => {
 
           </div>
         </div> */}
+          </div>
+        </div>
       </div>
     </div>
   );

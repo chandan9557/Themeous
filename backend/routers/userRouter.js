@@ -16,6 +16,20 @@ router.post('/add', (req, res) => {
 });
 
 
+router.post('/authenticate', (req, res) => {
+    
+    Model.findOne(req.body)
+    .then((result) => {
+        if(result) res.json(result);
+        else res.status(401).json({status : 'failed'});
+    })
+    .catch((err) => {
+        console.error(err);
+        res.status(500).json(err);
+    });
+});
+
+
 
 module.exports = router;
 

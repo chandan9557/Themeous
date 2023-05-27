@@ -20,7 +20,7 @@ const BootstrapCustomizer = () => {
   const [selAccent, setSelAccent] = useState("primary");
   const [borderRadius, setBorderRadius] = useState(0.375);
   const [fontFamily, setFontFamily] = useState("");
-  
+
   const [breakPoints, setBreakPoints] = useState({
     xs: 0,
     sm: 576,
@@ -47,22 +47,22 @@ const BootstrapCustomizer = () => {
       value
     );
     // console.log(
-      //   getComputedStyle(document.documentElement).getPropertyValue("--bs-blue")
-      // );
-    };
-    
-    const setBorderRadiusinPage = () => {
-      
-      document.documentElement.style.setProperty(
-        `--bs-border-width`,
-        borderRadius
-      );
+    //   getComputedStyle(document.documentElement).getPropertyValue("--bs-blue")
+    // );
+  };
+
+  const setBorderRadiusinPage = () => {
+
+    document.documentElement.style.setProperty(
+      `--bs-border-width`,
+      borderRadius
+    );
   }
 
   useEffect(() => {
     setBorderRadiusinPage();
   }, [borderRadius])
-  
+
 
   const showAccent = () => {
     return options.bootstrap.accent.map((accent, index) => (
@@ -85,13 +85,13 @@ const BootstrapCustomizer = () => {
     window.URL.revokeObjectURL(link.href);
   }
 
-  const displayOptions = () => {};
+  const displayOptions = () => { };
 
 
 
 
   return (
-    <div>
+    <div style={{backgroundImage:'url("https://static.vecteezy.com/system/resources/previews/003/484/037/original/modern-abstract-background-design-with-colorful-liquid-shapes-fluid-background-design-for-landing-page-theme-brochure-banner-cover-print-flyer-book-card-or-advertising-vector.jpg")', backgroundSize:'cover', backgroundRepeat:'no-repeat'}}>
       <div className="container">
         <header className="py-3">
           <div className="row">
@@ -185,26 +185,26 @@ const BootstrapCustomizer = () => {
                     max={50}
                     onChange={(e) => setBorderRadius(parseInt(e.target.value))}
                   />
-                  </div>
-                  </div>
+                </div>
               </div>
-              <div className="col-md-6 my-2">
-                <h4>Break Points</h4>
-                <div className="row">
-                  {
-                    Object.keys(breakPoints).map((breakPoint, index) => (
-                      <div className="col">
-                        <label className="h5">{breakPoint}</label>
-                        <input
-                          type="number"
-                          className="form-control"
-                          value={breakPoints[breakPoint]}
-                          // onChange={(e) => setBreakPoints(breakPoint, e.target.value)}
-                        />
-                      </div>
+            </div>
+            <div className="col-md-6 my-2">
+              <h4>Break Points</h4>
+              <div className="row">
+                {
+                  Object.keys(breakPoints).map((breakPoint, index) => (
+                    <div className="col">
+                      <label className="h5">{breakPoint}</label>
+                      <input
+                        type="number"
+                        className="form-control"
+                        value={breakPoints[breakPoint]}
+                      // onChange={(e) => setBreakPoints(breakPoint, e.target.value)}
+                      />
+                    </div>
 
-                    ))
-                  }
+                  ))
+                }
               </div>
             </div>
             <hr />

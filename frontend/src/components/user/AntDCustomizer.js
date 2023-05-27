@@ -4,62 +4,62 @@ import { Add, Mail, Navigation } from "@mui/icons-material";
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import app_config from "../../config";
 
-const items= [
-    {
-      label: 'Navigation One',
-      key: 'mail',
-      icon: <MailOutlined />,
-    },
-    {
-      label: 'Navigation Two',
-      key: 'app',
-      icon: <AppstoreOutlined />,
-      disabled: true,
-    },
-    {
-      label: 'Navigation Three - Submenu',
-      key: 'SubMenu',
-      icon: <SettingOutlined />,
-      children: [
-        {
-          type: 'group',
-          label: 'Item 1',
-          children: [
-            {
-              label: 'Option 1',
-              key: 'setting:1',
-            },
-            {
-              label: 'Option 2',
-              key: 'setting:2',
-            },
-          ],
-        },
-        {
-          type: 'group',
-          label: 'Item 2',
-          children: [
-            {
-              label: 'Option 3',
-              key: 'setting:3',
-            },
-            {
-              label: 'Option 4',
-              key: 'setting:4',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: (
-        <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-          Navigation Four - Link
-        </a>
-      ),
-      key: 'alipay',
-    },
-  ];
+const items = [
+  {
+    label: 'Navigation One',
+    key: 'mail',
+    icon: <MailOutlined />,
+  },
+  {
+    label: 'Navigation Two',
+    key: 'app',
+    icon: <AppstoreOutlined />,
+    disabled: true,
+  },
+  {
+    label: 'Navigation Three - Submenu',
+    key: 'SubMenu',
+    icon: <SettingOutlined />,
+    children: [
+      {
+        type: 'group',
+        label: 'Item 1',
+        children: [
+          {
+            label: 'Option 1',
+            key: 'setting:1',
+          },
+          {
+            label: 'Option 2',
+            key: 'setting:2',
+          },
+        ],
+      },
+      {
+        type: 'group',
+        label: 'Item 2',
+        children: [
+          {
+            label: 'Option 3',
+            key: 'setting:3',
+          },
+          {
+            label: 'Option 4',
+            key: 'setting:4',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: (
+      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+        Navigation Four - Link
+      </a>
+    ),
+    key: 'alipay',
+  },
+];
 
 const AntDCustomizer = ({ mainTheme, setMainTheme }) => {
   const [mode, setMode] = useState("light");
@@ -156,23 +156,14 @@ const AntDCustomizer = ({ mainTheme, setMainTheme }) => {
     default: "#fff",
   });
 
-  const updateColorPalette = (palette, setPalette, colorName, value) => {
-    let temp = palette;
-    temp[colorName] = value;
-    setPalette(temp);
+  const updateColorPalette = (key, value) => {
+    let temp = mainTheme.token;
+    temp[key] = value;
 
     setMainTheme({
-      // ...mainTheme,
-      token: {
-        colorPrimary,
-        secondary,
-        error,
-        warning,
-        info,
-        success,
-      },
+      token: temp,
     });
-    // console.log(mainTheme);
+    console.log(mainTheme);
   };
 
   const showAccent = () => {
@@ -215,8 +206,10 @@ const AntDCustomizer = ({ mainTheme, setMainTheme }) => {
   }
 
   return (
-    <div>
-      <div className="container">
+    <>
+    
+    <div style={{minHeight: '100vh' ,backgroundImage:'url("https://static.vecteezy.com/system/resources/previews/003/484/037/original/modern-abstract-background-design-with-colorful-liquid-shapes-fluid-background-design-for-landing-page-theme-brochure-banner-cover-print-flyer-book-card-or-advertising-vector.jpg")', backgroundSize:'cover', backgroundRepeat:'no-repeat'}}>
+      <div className="container" >
         {/* Button trigger modal */}
         <button
           type="button"
@@ -299,9 +292,7 @@ const AntDCustomizer = ({ mainTheme, setMainTheme }) => {
               className="form-control"
               onChange={(e) =>
                 updateColorPalette(
-                  getThemeObj(),
-                  getThemeSetObj(),
-                  "main",
+                  "color"+selAccent[0].toUpperCase()+selAccent.slice(1),
                   e.target.value
                 )
               }
@@ -314,13 +305,14 @@ const AntDCustomizer = ({ mainTheme, setMainTheme }) => {
             <Button disabled>Primary Button</Button>
             <Button type="text">Primary Button</Button>
             <Button type="link">Primary Button</Button>
-              <br />
+            <br />
             <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
 
           </div>
         </div>
       </div>
     </div>
+    </>
   );
 };
 
