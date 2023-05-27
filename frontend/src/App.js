@@ -12,7 +12,7 @@ import BootstrapCustomizer from './components/user/BootstrapCustomizer';
 import AntDCustomizer from './components/user/AntDCustomizer';
 import { ConfigProvider } from 'antd';
 import TailCustomize from './components/user/TailCustomize';
-import Home21 from './components/main/Home21';
+import Home from './components/main/Home';
 
 
 
@@ -33,9 +33,9 @@ function App() {
       <BrowserRouter>
         <Routes>
 
-       <Route path="/" element={<Navigate to="/main/home21"/>}/>
+       <Route path="/" element={<Navigate to="/main/signup"/>}/>
         <Route path='main' element={<Main />} >
-            <Route path="home21" element={<Home21 />} />
+        <Route path="home" element={<Home />} />
             <Route path="signup" element={<Signup />} />
             <Route path="login" element={<Login />} />
             <Route path="userProfile" element={<UserProfile />} />
