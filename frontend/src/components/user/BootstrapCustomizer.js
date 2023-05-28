@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-// import bootstrapVars from "./bootstrapVars";
+import React, { useState } from "react";
+import bootstrapVars from "./bootstrapVars";
 import "./bootstrap.css";
 import app_config from "../../config";
 
@@ -41,37 +41,56 @@ const BootstrapCustomizer = () => {
 
   const { options, fontFamilOptions } = app_config;
 
-  // const [selTheme, setSelTheme] = useState(bootstrapVars);
+  const [selTheme, setSelTheme] = useState(bootstrapVars);
   const color = getComputedStyle(document.documentElement).getPropertyValue(
-    "--bs-blue"
+    "--bs-primary"
   );
 
   const setColor = (classname, value) => {
     let temp = colorVals;
     temp[classname] = value;
     setColorVals(temp);
-
+    console.log(classname);
     document.documentElement.style.setProperty(
-      `--bs-${classToColor[classname]}`,
+      `--bs-${classname}`,
       value
     );
     // console.log(
-    //   getComputedStyle(document.documentElement).getPropertyValue("--bs-blue")
-    // );
-  };
-
-  const setBorderRadiusinPage = () => {
-
+      //   getComputedStyle(document.documentElement).getPropertyValue("--bs-blue")
+      // );
+    };
+    
+    const updateBorderRadius = (value) => {
     document.documentElement.style.setProperty(
-      `--bs-border-width`,
-      borderRadius
+      `--bs-border-radius`,
+      value+'px'
+    );
+    document.documentElement.style.setProperty(
+      `--bs-border-radius-sm`,
+      value+'px'
+    );
+    document.documentElement.style.setProperty(
+      `--bs-border-radius-lg`,
+      value+'px'
+    );
+    document.documentElement.style.setProperty(
+      `--bs-border-radius-xl`,
+      value+'px'
+    );
+    document.documentElement.style.setProperty(
+      `--bs-border-radius-2xl`,
+      value+'px'
+    );
+
+    }
+
+
+    const updateFamily = (value) => {
+    document.documentElement.style.setProperty(
+      `--bs-font-sans-serif`,
+      value
     );
   }
-
-  useEffect(() => {
-    setBorderRadiusinPage();
-  }, [borderRadius])
-
 
   const showAccent = () => {
     return options.bootstrap.accent.map((accent, index) => (
@@ -95,9 +114,6 @@ const BootstrapCustomizer = () => {
   }
 
   const displayOptions = () => { };
-
-
-
 
   return (
     <div style={{backgroundImage:'url("https://static.vecteezy.com/system/resources/previews/003/484/037/original/modern-abstract-background-design-with-colorful-liquid-shapes-fluid-background-design-for-landing-page-theme-brochure-banner-cover-print-flyer-book-card-or-advertising-vector.jpg")', backgroundSize:'cover', backgroundRepeat:'no-repeat'}}>
@@ -171,8 +187,10 @@ const BootstrapCustomizer = () => {
                 <h4>Custom Font Family</h4>
                 <select
                   className="form-control"
-                  value={selAccent}
-                  onChange={(e) => setFontFamily(e.target.value)}
+
+                  onChange={(e) => {
+                    updateFamily(e.target.value);
+                    setFontFamily(e.target.value)}}
                 >
                   {fontFamilOptions.map((font, index) => (
                     <option key={index} value={font}>
@@ -192,7 +210,9 @@ const BootstrapCustomizer = () => {
                     value={borderRadius}
                     min={0}
                     max={50}
-                    onChange={(e) => setBorderRadius(parseInt(e.target.value))}
+                    onChange={(e) => {
+                      updateBorderRadius(parseInt(e.target.value));
+                      setBorderRadius(parseInt(e.target.value))}}
                   />
                 </div>
               </div>
@@ -276,16 +296,246 @@ const BootstrapCustomizer = () => {
             </>
           </div>
         </div>
-        <button type="button" className="btn btn-primary">Primary</button>
-<button type="button" className="btn btn-secondary">Secondary</button>
-<button type="button" className="btn btn-success">Success</button>
-<button type="button" className="btn btn-danger">Danger</button>
-<button type="button" className="btn btn-warning">Warning</button>
-<button type="button" className="btn btn-info">Info</button>
-<button type="button" className="btn btn-light">Light</button>
-<button type="button" className="btn btn-dark">Dark</button>
+        <hr />
+        {/* <div className="row mt-5">
+          <div className="col-md-4">
+            <div className="card">
+              <div className="card-body">
+                <label className="h5">Secondary Color</label>
+                <input
+                  type="color"
+                  className="form-control"
+                  value={"#6c757d"}
+                  onChange={(e) => setColor("secondary", e.target.value)}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="col-md-8">
+            <button className="btn btn-secondary">Normal Button</button>
+            <button className="btn btn-outline-secondary">
+              Outline Button
+            </button>
+            <div className="card bg-secondary mt-3">
+              <div className="card-body">
+                <h1>Card with secondary Background</h1>
+              </div>
+            </div>
+            <h1 className="mt-3 text-secondary">Some secondary Text</h1>
+            <label for="customRange1" class="form-label mt-3">
+              Example range
+            </label>
+            <input type="range" class="form-range" id="customRange1"></input>
+            <div class="alert alert-secondary mt-3" role="alert">
+              A simple secondary alert—check it out!
+            </div>
 
-<button type="button" className="btn btn-link">Link</button>
+            <>
+              <div
+                className="progress mt-3"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow={0}
+                aria-valuemin={0}
+                aria-valuemax={100}
+              >
+                <div
+                  className="progress-bar bg-secondary"
+                  style={{ width: "0%" }}
+                />
+              </div>
+              <div
+                className="progress mt-3"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow={25}
+                aria-valuemin={0}
+                aria-valuemax={100}
+              >
+                <div
+                  className="progress-bar bg-secondary"
+                  style={{ width: "25%" }}
+                />
+              </div>
+              <div
+                className="progress mt-3"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow={50}
+                aria-valuemin={0}
+                aria-valuemax={100}
+              >
+                <div
+                  className="progress-bar bg-secondary"
+                  style={{ width: "50%" }}
+                />
+              </div>
+              <div
+                className="progress mt-3"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow={75}
+                aria-valuemin={0}
+                aria-valuemax={100}
+              >
+                <div
+                  className="progress-bar bg-secondary"
+                  style={{ width: "75%" }}
+                />
+              </div>
+              <div
+                className="progress mt-3"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow={100}
+                aria-valuemin={0}
+                aria-valuemax={100}
+              >
+                <div
+                  className="progress-bar bg-secondary"
+                  style={{ width: "100%" }}
+                />
+              </div>
+              <h1>
+                Example heading <span class="badge bg-secondary">New</span>
+              </h1>
+              <h2>
+                Example heading <span class="badge bg-secondary">New</span>
+              </h2>
+              <h3>
+                Example heading <span class="badge bg-secondary">New</span>
+              </h3>
+              <h4>
+                Example heading <span class="badge bg-secondary">New</span>
+              </h4>
+              <h5>
+                Example heading <span class="badge bg-secondary">New</span>
+              </h5>
+              <h6>
+                Example heading <span class="badge bg-secondary">New</span>
+              </h6>
+            </>
+          </div>
+        </div>
+        <hr />
+        <div className="row mt-5">
+          <div className="col-md-4">
+            <div className="card">
+              <div className="card-body">
+                <label className="h5">Success Color</label>
+                <input
+                  type="color"
+                  className="form-control"
+                  value={"#198754"}
+                  onChange={(e) => setColor("success", e.target.value)}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="col-md-8">
+            <button className="btn btn-success">Normal Button</button>
+            <button className="btn btn-outline-success">Outline Button</button>
+            <div className="card bg-success mt-3">
+              <div className="card-body">
+                <h1>Card with success Background</h1>
+              </div>
+            </div>
+            <h1 className="mt-3 text-success">Some success Text</h1>
+            <label for="customRange1" class="form-label mt-3">
+              Example range
+            </label>
+            <input type="range" class="form-range" id="customRange1"></input>
+            <div class="alert alert-success mt-3" role="alert">
+              A simple success alert—check it out!
+            </div>
+
+            <>
+              <div
+                className="progress mt-3"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow={0}
+                aria-valuemin={0}
+                aria-valuemax={100}
+              >
+                <div
+                  className="progress-bar bg-success"
+                  style={{ width: "0%" }}
+                />
+              </div>
+              <div
+                className="progress mt-3"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow={25}
+                aria-valuemin={0}
+                aria-valuemax={100}
+              >
+                <div
+                  className="progress-bar bg-success"
+                  style={{ width: "25%" }}
+                />
+              </div>
+              <div
+                className="progress mt-3"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow={50}
+                aria-valuemin={0}
+                aria-valuemax={100}
+              >
+                <div
+                  className="progress-bar bg-success"
+                  style={{ width: "50%" }}
+                />
+              </div>
+              <div
+                className="progress mt-3"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow={75}
+                aria-valuemin={0}
+                aria-valuemax={100}
+              >
+                <div
+                  className="progress-bar bg-success"
+                  style={{ width: "75%" }}
+                />
+              </div>
+              <div
+                className="progress mt-3"
+                role="progressbar"
+                aria-label="Basic example"
+                aria-valuenow={100}
+                aria-valuemin={0}
+                aria-valuemax={100}
+              >
+                <div
+                  className="progress-bar bg-success"
+                  style={{ width: "100%" }}
+                />
+              </div>
+              <h1>
+                Example heading <span class="badge bg-success">New</span>
+              </h1>
+              <h2>
+                Example heading <span class="badge bg-success">New</span>
+              </h2>
+              <h3>
+                Example heading <span class="badge bg-success">New</span>
+              </h3>
+              <h4>
+                Example heading <span class="badge bg-success">New</span>
+              </h4>
+              <h5>
+                Example heading <span class="badge bg-success">New</span>
+              </h5>
+              <h6>
+                Example heading <span class="badge bg-success">New</span>
+              </h6>
+            </>
+          </div>
+        </div> */}
       </section>
     </div>
   );
