@@ -9,12 +9,21 @@ const BootstrapCustomizer = () => {
     secondary: "gray",
     success: "green",
     danger: "red",
+    warning:"yellow",
+    info:"skyblue",
+    light:"white",
+    dark:"black"
   };
 
   const [colorVals, setColorVals] = useState({
     primary: "#0d6efd",
     secondary: "#6c757d",
     success: "#198754",
+    danger: "#d63384",
+    warning:"#ffc107",
+    info:"#0dcaf0",
+    light:"#f8f9fa",
+    dark:"#212529"
   });
 
   const [selAccent, setSelAccent] = useState("primary");
@@ -267,6 +276,16 @@ const BootstrapCustomizer = () => {
             </>
           </div>
         </div>
+        <button type="button" className="btn btn-primary">Primary</button>
+<button type="button" className="btn btn-secondary">Secondary</button>
+<button type="button" className="btn btn-success">Success</button>
+<button type="button" className="btn btn-danger">Danger</button>
+<button type="button" className="btn btn-warning">Warning</button>
+<button type="button" className="btn btn-info">Info</button>
+<button type="button" className="btn btn-light">Light</button>
+<button type="button" className="btn btn-dark">Dark</button>
+
+<button type="button" className="btn btn-link">Link</button>
       </section>
     </div>
   );
