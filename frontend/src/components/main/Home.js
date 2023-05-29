@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const Home = () => {
   return (
+    
     <div>
       <div data-draggable="true" className="" style={{ position: "relative" }}>
         {/**/}
@@ -47,7 +48,7 @@ const Home = () => {
                     role="button"
                     aria-controls="#picker-editor"
                   >
-                    Explore Frameworks
+                    Explore Frameworks & Library
                   </Link>
                 </div>
               </div>
@@ -174,7 +175,7 @@ const Home = () => {
                   <h5 className="fw-bold">Customizing Bootstrap 5 Using SASS</h5>
                   <div className="mb-2 text-danger small">
                     
-                    <span><button type="button" className="btn btn-dark btn-lg btn-block" ><Link className="deco" to="/user/customizebt">PUSH</Link></button></span>
+                    <span><button type="button" className="btn btn-dark btn-lg btn-block" ><Link className="deco" to="/user/customizebt">Start Now</Link></button></span>
                   </div>
                   <p className="text-muted">
                     Ut pretium ultricies dignissim. Sed sit amet mi eget urna
@@ -200,7 +201,7 @@ const Home = () => {
                   <h5 className="fw-bold">Customizing React Js Using <br/>MUI</h5>
                   <div className="mb-2 text-primary small">
                     
-                    <span><button type="button" class="btn btn-dark btn-lg btn-block"><Link className="deco" to="/user/customizemui">PUSH</Link></button></span>
+                    <span><button type="button" class="btn btn-dark btn-lg btn-block"><Link className="deco" to="/user/customizemui">Start Now</Link></button></span>
                   </div>
                   <p className="text-muted">
                     Suspendisse in volutpat massa. Nulla facilisi. Sed aliquet
@@ -225,7 +226,7 @@ const Home = () => {
                   <h5 className="fw-bold">Customizing React Js Using AntDesign</h5>
                   <div className="mb-2 text-warning small">
                     
-                    <span><button type="button" class="btn btn-dark btn-lg btn-block"><Link className="deco" to="/user/customizeantd">PUSH</Link></button></span>
+                    <span><button type="button" class="btn btn-dark btn-lg btn-block"><Link className="deco" to="/user/customizeantd">Start Now</Link></button></span>
                   </div>
                   <p className="text-muted">
                     Curabitur tristique, mi a mollis sagittis, metus felis
@@ -256,7 +257,7 @@ const Home = () => {
                   <h5 className="fw-bold">Customizing Tailwind CSS Using Palette</h5>
                   <div className="mb-2 text-warning small">
                     
-                    <span><button type="button" class="btn btn-primary btn-lg btn-block">Push</button></span>
+                    <span><button type="button" class="btn btn-primary btn-lg btn-block">Start Now</button></span>
                   </div>
                   <p className="text-muted">
                     Curabitur tristique, mi a mollis sagittis, metus felis
@@ -266,7 +267,7 @@ const Home = () => {
                 </div>
               {/* </div> */}
                 </div>
-                <div className="col-md-5 mx-auto">
+                <div className="col-md-5 d1 mx-auto">
                 <div>
                   <div
                     className="bg-image hover-overlay ripple shadow-1-strong rounded-4 mb-4"
@@ -283,7 +284,7 @@ const Home = () => {
                   <h5 className="fw-bold">Customizing Angular Using Angular Material</h5>
                   <div className="mb-2 text-warning small">
                     
-                    <span><button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button></span>
+                    <span><button type="button" class="btn btn-primary btn-lg btn-block">Start Now</button></span>
                   </div>
                   <p className="text-muted">
                     Curabitur tristique, mi a mollis sagittis, metus felis
@@ -400,6 +401,7 @@ const Home = () => {
         
       </div>
     </div>
+    
   );
 };
 

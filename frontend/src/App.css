@@ -31,4 +31,6 @@
   text-decoration: none;
   color: white;
 }
- 
+.d1{
+  filter: blur(1px);
+} 
