@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import bootstrapVars from "./bootstrapVars";
 import "./bootstrap.css";
 import app_config from "../../config";
 
@@ -41,7 +40,7 @@ const BootstrapCustomizer = () => {
 
   const { options, fontFamilOptions } = app_config;
 
-  const [selTheme, setSelTheme] = useState(bootstrapVars);
+  // const [selTheme, setSelTheme] = useState(bootstrapVars);
   const color = getComputedStyle(document.documentElement).getPropertyValue(
     "--bs-primary"
   );

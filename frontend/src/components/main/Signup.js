@@ -71,7 +71,7 @@ const Signup = () => {
                     <h1>Themeous</h1>
                   </div>
 
-                  <form onSubmit={signupForm.handleSubmit}>
+                  <form onSubmit={signupForm.handleSubmit}> 
                     <div className="row align-items-center pt-4 pb-3">
                       <div className="col-md-3 ps-5">
                         <h6 className="mb-0">Full name</h6>
