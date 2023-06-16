@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Button, Menu, theme } from "antd";
+import { Button, Menu, theme,Pagination } from "antd";
 import { Add, Mail, Navigation } from "@mui/icons-material";
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import app_config from "../../config";
+
 
 const items = [
   {
@@ -300,14 +301,16 @@ const AntDCustomizer = ({ mainTheme, setMainTheme }) => {
             />
           </div>
           <div className="col-md-8">
-            <Button type="primary" warning>Primary Button</Button>
+            <Button type="primary"  danger>Primary Button</Button>
             <Button type="default">Primary Button</Button>
             <Button type="dashed">Primary Button</Button>
             <Button disabled>Primary Button</Button>
             <Button type="text">Primary Button</Button>
             <Button type="link">Primary Button</Button>
             <br />
-            <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
+            <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
+           <Pagination defaultCurrent={6} total={500} />
+
 
           </div>
         </div>

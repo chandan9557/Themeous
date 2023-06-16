@@ -12,7 +12,8 @@ const app_config = {
         "Raleway",
         "Oswald",
         "Times New Roman",
-        
+        "Gideon Roman",
+        " Tiro Devanagari Hindi"
       ],
       options: {
         bootstrap: {

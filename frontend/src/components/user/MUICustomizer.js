@@ -22,7 +22,10 @@ const MUICustomizer = ({ mainTheme, setMainTheme }) => {
 
   const fontFamilyOptions = [
     'Montserrat',
-    'Roboto'
+    'Roboto',
+    'Lato',
+    'Raleway'
+    
   ]
 
   const { options } = app_config;
@@ -38,8 +41,6 @@ const MUICustomizer = ({ mainTheme, setMainTheme }) => {
     xl: 1200,
     xxl: 1400,
   });
-
-
 
   const [primary, setPrimary] = useState({
     main: "#1976d2",

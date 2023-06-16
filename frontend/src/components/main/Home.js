@@ -158,7 +158,7 @@ const Home = () => {
           <section className="mb-1 text-center">
             <h2 className="fw-bold mb-5 text-center">Developer Select Any Framework & Library</h2>
             <div className="row gx-lg-5">
-              <div className="col-lg-3 col-md-12 mb-4 mb-lg-0">
+              <div className="col-lg-4 col-md-12 mb-4 mb-lg-0">
                 <div>
                   <div
                     className="bg-image hover-overlay ripple shadow-1-strong rounded-4 mb-4"
@@ -169,13 +169,13 @@ const Home = () => {
                       className="w-100"
                       alt=""
                       aria-controls="#picker-editor"
-                      style={{width:350,height:255}}
+                      style={{width:340,height:255}}
                     />
                   </div>
                   <h5 className="fw-bold">Customizing Bootstrap 5 Using SASS</h5>
                   <div className="mb-2 text-danger small">
                     
-                    <span><button type="button" className="btn btn-dark btn-lg btn-block" ><Link className="deco" to="/user/customizebt">Start Now</Link></button></span>
+                    <span><button type="button" className="btn btn-dark btn-lg btn-block" ><NavLink className="deco" to="/user/customizebt">Start Now</NavLink></button></span>
                   </div>
                   <p className="text-muted">
                     Ut pretium ultricies dignissim. Sed sit amet mi eget urna
@@ -201,7 +201,7 @@ const Home = () => {
                   <h5 className="fw-bold">Customizing React Js Using <br/>MUI</h5>
                   <div className="mb-2 text-primary small">
                     
-                    <span><button type="button" class="btn btn-dark btn-lg btn-block"><Link className="deco" to="/user/customizemui">Start Now</Link></button></span>
+                    <span><button type="button" class="btn btn-dark btn-lg btn-block"><NavLink className="deco" to="/user/customizemui">Start Now</NavLink></button></span>
                   </div>
                   <p className="text-muted">
                     Suspendisse in volutpat massa. Nulla facilisi. Sed aliquet
@@ -226,7 +226,7 @@ const Home = () => {
                   <h5 className="fw-bold">Customizing React Js Using AntDesign</h5>
                   <div className="mb-2 text-warning small">
                     
-                    <span><button type="button" class="btn btn-dark btn-lg btn-block"><Link className="deco" to="/user/customizeantd">Start Now</Link></button></span>
+                    <span><button type="button" class="btn btn-dark btn-lg btn-block"><NavLink className="deco" to="/user/customizeantd">Start Now</NavLink></button></span>
                   </div>
                   <p className="text-muted">
                     Curabitur tristique, mi a mollis sagittis, metus felis

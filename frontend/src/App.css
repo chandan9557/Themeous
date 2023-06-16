@@ -4,6 +4,7 @@
     color: red !important;
     max-width: fit-content;
   }
+
  .inputBox{
   display: block;
   margin: 15px;
@@ -14,7 +15,6 @@
  }
 
  .appButton{
-  
     color: lightgreen;
     background-color: blue;
     margin-left: 15px;
@@ -34,3 +34,6 @@
 .d1{
   filter: blur(1px);
 } 
+.deco:hover{
+color: green;
+}

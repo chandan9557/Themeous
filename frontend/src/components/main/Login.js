@@ -66,7 +66,8 @@ const Login = () => {
               <div className="card shadow-2-strong" style={{ borderRadius: "1rem" }}>
                 <div className="card-body p-5 text-center">
                   <form onSubmit={loginForm.handleSubmit}>
-                    <h3 className="mb-5">Sign in</h3>
+                  
+                    <h3 className="mb-5">Themeous</h3>
                     <MDBInput label='Email' type='text' id="email"
                       value={loginForm.values.email}
                       onChange={loginForm.handleChange} className='mb-3' />

@@ -64,7 +64,7 @@ const Signup = () => {
                     <img
                       src="/logo.png"
                       alt="Generic placeholder image"
-                      className=""
+                      className="img-fluid"
 
                       style={{ height: 60, display: "block" }}
                     />
@@ -127,7 +127,7 @@ const Signup = () => {
                     <div className="px-5 py-4">
                       <button type="submit" className="btn btn-primary btn-lg" disabled={signupForm.isSubmitting} >
                         {signupForm.isSubmitting ? <span className="spinner-border spinner-border-sm"></span> : null}
-                        &nbsp;&nbsp;Submit
+                        &nbsp;&nbsp;SignUp
                       </button>
                     </div>
                   </form>
