@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Menu } from "antd";
+import { Button, Menu, theme } from "antd";
 import { Add, Mail, Navigation } from "@mui/icons-material";
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import app_config from "../../config";
@@ -158,12 +158,13 @@ const AntDCustomizer = ({ mainTheme, setMainTheme }) => {
 
   const updateColorPalette = (key, value) => {
     let temp = mainTheme.token;
-    temp[key] = value;
+    temp = {...temp, [key]: value};
+    // setPalette(temp);
 
     setMainTheme({
+      ...mainTheme,
       token: temp,
     });
-    console.log(mainTheme);
   };
 
   const showAccent = () => {
@@ -231,7 +232,7 @@ const AntDCustomizer = ({ mainTheme, setMainTheme }) => {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">
-                  Export MUI Theme
+                  Export AntDesign Theme
                 </h5>
                 <button
                   type="button"
@@ -277,7 +278,7 @@ const AntDCustomizer = ({ mainTheme, setMainTheme }) => {
           value={selAccent}
           onChange={(e) => setSelAccent(e.target.value)}
         >
-          {options.materialUI.accent.map((accent, index) => (
+          {options.antDesign.accent.map((accent, index) => (
             <option key={index} value={accent}>
               {accent}
             </option>
@@ -292,7 +293,7 @@ const AntDCustomizer = ({ mainTheme, setMainTheme }) => {
               className="form-control"
               onChange={(e) =>
                 updateColorPalette(
-                  "color"+selAccent[0].toUpperCase()+selAccent.slice(1),
+                  'color'+selAccent.charAt(0).toUpperCase() + selAccent.slice(1),
                   e.target.value
                 )
               }
